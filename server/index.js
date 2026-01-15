@@ -19,7 +19,7 @@ app.post("/jobs", async (req, res) => {
     res.json({ jobId: job.id });
 })
 
-app.get("jobs/:id", async (req, res) => {
+app.get("/jobs/:id", async (req, res) => {
     const job = await emailQueue.getJob(req.params.id);
     if (!job) {
         return res.status(404).json({ error: 'Job not found' });
